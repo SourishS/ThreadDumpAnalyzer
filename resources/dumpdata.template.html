@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table, td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    border-collapse: collapse;
+}
+
+.odd {
+	background-color: lightblue;
+}
+
+.window {
+    position: fixed;
+    top: 5%;
+    left: 10%;
+    width: 70%;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: 3px;
+    
+}
+
+.window>.header {
+	background-color: lightblue;
+	padding: 5px;
+}
+
+.window>.content {
+	border: 1px solid gray;
+	padding: 5px;
+	overflow: scroll;
+}
+
+</style>
+<script type="text/javascript">
+	function showStack(el) {
+		document.getElementById('tname').innerHTML = el.getAttribute("name");
+		document.getElementById('content').innerHTML = el.getAttribute("stack");
+		document.getElementById('window').style.display='table';
+	}
+
+</script>
+</head>
+<body>
+<h1>%%filename%%</h1>
+<span>Generated at: %%gentime%%</span>
+
+<div class="threaddetails">
+	<span style="font-size: 20px;font-weight: bold;line-height: 30px;">Thread details</span>
+	<span style="float: right;">Total threads : %%threadcnt%%</span>
+	<table style="width: 100%;">
+		<tr><th>Id</th><th>Name</th><th>State</th><th>Owned locks</th><th>Waiting for locks</th><th></th></tr>
+		%%tabledata%%
+	</table>
+</div>
+
+<div class='window' id='window' style="display: none;">
+	<div class="header">
+		<button onclick="this.parentElement.parentElement.style.display='none';" style="float: right;">X</button>
+		<h2 style="display: inline;">Stack for Thread <i id='tname'></i> </h2>
+	</div>
+	<div class="content" id='content'>
+		
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	table, td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    border-collapse: collapse;
+}
+
+.odd {
+	background-color: lightblue;
+}
+</style>
+</head>
+<body>
+<h1>Comparison of thread dumps</h1>
+<div id='dumps'>%%dumps%%</div>
+<div class="threaddetails">
+	<span style="font-size: 20px;font-weight: bold;line-height: 30px;">Sticky Threads</span>
+	<span style="float: right;">Total threads : %%threadcnt%%</span>
+	<table style="width: 100%;">
+		<tr><th>Id</th><th>Name</th><th>State</th><th>Running for</th><th>Computed Severity</th><th>Dumps where exists</th></tr>
+		%%tabledata%%
+	</table>
+</div>
+</body>
+</html>
